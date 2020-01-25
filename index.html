@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Algorithms and Data Structures 💪</title>
+  </head>
+
+  <body>
+    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+    <script>
+      //       class Player {
+      //   constructor() {
+      //     this.name = name;
+      //     this.type = type;
+      //   }
+      //   introduce() {
+      //     console.log(`Hi, I am ${this.name} and I am a ${this.type}, foolio`)
+      //   }
+
+      // }
+
+      function reverse() {
+        let string = 'Hi my name is David';
+        console.log;
+      }
+
+      // console.log(this);
+      // // ///////////////////////////////Section 3: Big O//////////////////////////////////////////////////////////////////////////////////////////
+      // // // O(n) = for loops, while loops through n items
+
+      // // const nemo = ['nemo'];
+      // // const everyone = [
+      // //   'dory',
+      // //   'bruce',
+      // //   'marlin',
+      // //   'nemo',
+      // //   'gill',
+      // //   'bloat',
+      // //   'nigel',
+      // //   'squirt',
+      // //   'darla',
+      // //   'hank'
+      // // ];
+      // // const large = new Array(100000).fill('nemo');
+
+      // // function findNemo(array) {
+      // //   let t0 = performance.now();
+      // //   for (let i = 0; i < array.length; i++) {
+      // //     if (array[i] === 'nemo') {
+      // //       console.log('found NEMO Yolo!!');
+      // //       break;
+      // //     }
+      // //   }
+      // //   let t1 = performance.now();
+      // //   console.log('Call to find Nemo took ' + (t1 - t0) + ' milliseconds');
+      // // }
+
+      // // findNemo(large);
+
+      // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      // // O(1) Constant - no loops
+      // //  Always going to run the same all the time
+
+      // // const boxes = [0, 1, 2, 3, 4, 5];
+
+      // // function logFirstTwoBoxes(boxes) {
+      // //     console.log(boxes[0]);
+      // //     console.log(boxes[1]);
+      // // }
+
+      // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      // // Exercise 1  - Big O Notation
+      // // n = input
+
+      // // function funChallenge(input) {
+      // //   let a = 10; //O(1)
+      // //   a = 50 + 3; //O(1)
+
+      // //   for (let i = 0; i < input.length; i++) {
+      // //     //O(n)
+      // //     anotherFunction(); //O(n)
+      // //     let stranger = true; //O(n)
+      // //     a++; //O(n)
+      // //   }
+      // //   return a; //O(1)
+      // // }
+
+      // // funChallenge();
+
+      // // big O notation = 3 + 4n
+
+      // /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      // // Exercise 3 - Big O Notation #2
+      // // n = input
+
+      // // What is the Big O of the below function? (Hint, you may want to go line by line)
+      // // function anotherFunChallenge(input) {
+      // //   let a = 5; //O(1)
+      // //   let b = 10; //O(1)
+      // //   let c = 50; //O(1)
+      // //   for (let i = 0; i < input; i++) {
+      // //     //O(n)
+      // //     let x = i + 1; //O(n)
+      // //     let y = i + 2; //O(n)
+      // //     let z = i + 3; //O(n)
+      // //   }
+      // //   for (let j = 0; j < input; j++) {
+      // //     //O(n)
+      // //     let p = j * 2; //O(n)
+      // //     let q = j * 2; //O(n)
+      // //   }
+      // //   let whoAmI = "I don't know"; //O(1)
+      // // }
+      // // anotherFunChallenge();
+
+      // //big O Notation = 4 + 7n
+
+      // //   function printFirstItemThenFirstHalfThenSayHi100Times(items) {
+      // //     console.log(items[0]);
+
+      // //     var middleIndex = Math.floor(items.length / 2);
+      // //     var index = 0;
+
+      // //     while (index < middleIndex) {
+      // //       console.log(items[index]);
+      // //       index++;
+      // //     }
+
+      // //     for (var i = 0; i < 100; i++) {
+      // //       console.log('hi');
+      // //     }
+      // //   }
+
+      // //#5 Space complexity O(1)
+      // // function boooo(n) {
+      // //   for (let i = 0; i < n; i++) {
+      // //     console.log('booooo');
+      // //   }
+      // // }
+      // // boooo([5]);
+
+      // // // #6 Space complexity O(n)
+      // // function arrayOfHiNTimes(n) {
+      // //   var hiArray = [];
+      // //   for (let i = 0; i < n; i++) {
+      // //     hiArray[i] = 'hi';
+      // //   }
+      // //   return hiArray;
+      // // }
+
+      // // arrayOfHiNTimes(6);
+      // // Given 2 arrays, create a function that let's a user know (true/false) whether these two arrays contain any common items
+      // //For Example:
+      // const array1 = ['a', 'b', 'c', 'x'];
+      // const array2 = ['z', 'y', 'a'];
+      // //should return false.
+      // //-----------
+      // // const array1 = ['a', 'b', 'c', 'x'];//const array2 = ['z', 'y', 'x'];
+      // //should return true.
+
+      // // 2 parameters - arrays - no size limit
+      // // return true or false
+
+      // // function checkTwoArrays(arr1, arr2) {
+      // //   for (i = 0; i < arr1.length; i++) {
+      // //     for (j = 0; j < arr2.length; j++) {
+      // //       if (arr1[i] === arr2[j]) {
+      // //         return true;
+      // //       }
+      // //     }
+      // //   }
+      // //   return false;
+      // // }
+
+      // // checkTwoArrays(array1, array2);
+
+      // function compareObjectToArray(arr1, arr2) {
+      //   let map = {};
+      //   for (let i = 0; i < arr1.length; i++) {
+      //     if (!map[array1[i]]) {
+      //       const item = array1[i];
+      //       map[item] = true;
+      //     }
+      //   }
+      //   for (let j = 0; j < arr2.length; j++) {
+      //     if (map[arr2[j]]) {
+      //       return true;
+      //     }
+      //   }
+      //   return false;
+      // }
+      // compareObjectToArray(array1, array2);
+
+      const mergeSortedArrays = (array1, array2) => {
+        const mergedArray = [];
+        let array1Item = array1[0];
+        let array2Item = array2[0];
+
+        // check input
+        if (array1.length === 0) {
+          return array2;
+        }
+        if (array2.length === 0) {
+          return array1;
+        }
+        sortedArrayCheck(array1Item, array2Item, mergedArray, array1, array2);
+        return mergedArray;
+      };
+      mergeSortedArrays([0, 3, 4, 31], [3, 4, 6, 30]);
+
+      function sortedArrayCheck(
+        array1Item,
+        array2Item,
+        mergedArray,
+        array1,
+        array2
+      ) {
+        let i = 1;
+        let j = 1;
+        while (array1Item || array2Item) {
+          if (!array2Item || array1Item < array2Item) {
+            mergedArray.push(array1Item);
+            array1Item = array1[i];
+            i++;
+          } else {
+            mergedArray.push(array2Item);
+            array2Item = array2[j];
+            j++;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
