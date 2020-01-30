@@ -160,8 +160,8 @@
 
       // // 2 parameters - arrays - no size limit
       // // return true or false
-      const array1 = ['a', 'b', 'c', 'x'];
-      const array2 = ['z', 'y', 'a'];
+      // const array1 = ['a', 'b', 'c', 'x'];
+      // const array2 = ['z', 'y', 'a'];
       // // function checkTwoArrays(arr1, arr2) {
       // //   for (i = 0; i < arr1.length; i++) {
       // //     for (j = 0; j < arr2.length; j++) {
@@ -192,11 +192,11 @@
       // }
       // compareObjectToArray(array1, array2);
 
-      function compareTwoArrays(arr1, arr2) {
-        return arr1.some(item => arr2.includes(item));
-      }
+      // function compareTwoArrays(arr1, arr2) {
+      //   return arr1.some(item => arr2.includes(item));
+      // }
 
-      compareTwoArrays(array1, array2);
+      // compareTwoArrays(array1, array2);
 
       // const mergeSortedArrays = (array1, array2) => {
       //   const mergedArray = [];
@@ -240,11 +240,10 @@
         constructor(size) {
           this.data = new Array(size);
         }
-
         _hash(key) {
           let hash = 0;
           for (let i = 0; i < key.length; i++) {
-            hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+            hash = (hash + key.charCodeAt(i) * i) % this.data.length; // this creates a unique number
           }
           return hash;
           // O(1)
@@ -271,6 +270,7 @@
           return undefined;
         }
         keys() {
+          // returns new array of keys from (key, value)
           const keysArray = [];
           for (let i = 0; i < this.data.length; i++) {
             if (this.data[i]) {
