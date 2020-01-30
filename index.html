@@ -19,10 +19,10 @@
 
       // }
 
-      function reverse() {
-        let string = 'Hi my name is David';
-        console.log;
-      }
+      // function reverse() {
+      //   let string = 'Hi my name is David';
+      //   console.log;
+      // }
 
       // console.log(this);
       // // ///////////////////////////////Section 3: Big O//////////////////////////////////////////////////////////////////////////////////////////
@@ -160,7 +160,8 @@
 
       // // 2 parameters - arrays - no size limit
       // // return true or false
-
+      const array1 = ['a', 'b', 'c', 'x'];
+      const array2 = ['z', 'y', 'a'];
       // // function checkTwoArrays(arr1, arr2) {
       // //   for (i = 0; i < arr1.length; i++) {
       // //     for (j = 0; j < arr2.length; j++) {
@@ -191,44 +192,103 @@
       // }
       // compareObjectToArray(array1, array2);
 
-      const mergeSortedArrays = (array1, array2) => {
-        const mergedArray = [];
-        let array1Item = array1[0];
-        let array2Item = array2[0];
+      function compareTwoArrays(arr1, arr2) {
+        return arr1.some(item => arr2.includes(item));
+      }
 
-        // check input
-        if (array1.length === 0) {
-          return array2;
-        }
-        if (array2.length === 0) {
-          return array1;
-        }
-        sortedArrayCheck(array1Item, array2Item, mergedArray, array1, array2);
-        return mergedArray;
-      };
-      mergeSortedArrays([0, 3, 4, 31], [3, 4, 6, 30]);
+      compareTwoArrays(array1, array2);
 
-      function sortedArrayCheck(
-        array1Item,
-        array2Item,
-        mergedArray,
-        array1,
-        array2
-      ) {
-        let i = 1;
-        let j = 1;
-        while (array1Item || array2Item) {
-          if (!array2Item || array1Item < array2Item) {
-            mergedArray.push(array1Item);
-            array1Item = array1[i];
-            i++;
-          } else {
-            mergedArray.push(array2Item);
-            array2Item = array2[j];
-            j++;
+      // const mergeSortedArrays = (array1, array2) => {
+      //   const mergedArray = [];
+      //   let array1Item = array1[0];
+      //   let array2Item = array2[0];
+
+      //   // check input
+      //   if (array1.length === 0) {
+      //     return array2;
+      //   }
+      //   if (array2.length === 0) {
+      //     return array1;
+      //   }
+      //   sortedArrayCheck(array1Item, array2Item, mergedArray, array1, array2);
+      //   return mergedArray;
+      // };
+      // mergeSortedArrays([0, 3, 4, 31], [3, 4, 6, 30]);
+
+      // function sortedArrayCheck(
+      //   array1Item,
+      //   array2Item,
+      //   mergedArray,
+      //   array1,
+      //   array2
+      // ) {
+      //   let i = 1;
+      //   let j = 1;
+      //   while (array1Item || array2Item) {
+      //     if (!array2Item || array1Item < array2Item) {
+      //       mergedArray.push(array1Item);
+      //       array1Item = array1[i];
+      //       i++;
+      //     } else {
+      //       mergedArray.push(array2Item);
+      //       array2Item = array2[j];
+      //       j++;
+      //     }
+      //   }
+      // }
+      class HashTable {
+        constructor(size) {
+          this.data = new Array(size);
+        }
+
+        _hash(key) {
+          let hash = 0;
+          for (let i = 0; i < key.length; i++) {
+            hash = (hash + key.charCodeAt(i) * i) % this.data.length;
           }
+          return hash;
+          // O(1)
+        }
+        set(key, value) {
+          let address = this._hash(key);
+          if (!this.data[address]) {
+            this.data[address] = [];
+          }
+          this.data[address].push(key, value);
+          return this.data;
+          // O(1)
+        }
+        get(key) {
+          let address = this._hash(key);
+          const currentBucket = this.data[address];
+          if (currentBucket) {
+            for (let i = 0; i < currentBucket.length; i++) {
+              if (currentBucket[i][0] === key) {
+                return currentBucket[i][1];
+              }
+            }
+          }
+          return undefined;
+        }
+        keys() {
+          const keysArray = [];
+          for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i]) {
+              keysArray.push(this.data[i][0]);
+            }
+          }
+          // console.log(keysArray);
+          return keysArray;
         }
       }
+      //O(1)
+
+      const myHashTable = new HashTable(50);
+      myHashTable.set('grapes', 10000);
+      myHashTable.set('apples', 54);
+      myHashTable.set('oranges', 2);
+      myHashTable.get('apples');
+      myHashTable.keys();
     </script>
   </body>
 </html>
